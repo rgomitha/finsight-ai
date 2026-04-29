@@ -95,3 +95,14 @@ state = run(state)
 print(state["rag_result"])   # cited financial passages
 print(state["sources"])      # ['Apple_2023_10K.htm', ...]
 ```
+
+## Model Comparison
+
+- Baselines:
+  - Logistic Regression (linear)
+  - Random Forest (tree)
+- Primary comparison: XGBoost vs LightGBM
+  - XGBoost wins on both F1 (0.874 vs 0.837) and AUC-PR (0.867 vs 0.742)
+  - Recommended primary tree model: XGBoost
+- Deployed model:
+  - Random Forest (selected by AUC-PR margin of 0.009 over XGBoost)
